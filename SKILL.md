@@ -6,6 +6,8 @@ description: |
   closers, staged openers, forced triads, dashes everywhere, inflated claims, sales
   language, stock AI words, bold labels, or filler. Based on Wikipedia's "Signs of AI writing."
 license: MIT
+fork_of: "blader/humanizer"
+fork_version: 1
 metadata:
   version: "3.1.0"
 ---
@@ -13,6 +15,10 @@ metadata:
 # Humanizer: remove AI writing patterns
 
 Rewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what it says. Do not make anything up.
+
+## Local scope (fork amendment, 2026-11-04)
+
+Do not apply this skill to evidence-bearing artifacts: receipts and sealed records, reviewer or verification reports, decision records whose wording is itself the record, or NeuroStrata inscriptions. In those texts, formatting and hedging carry evidentiary meaning, and patterns this skill otherwise removes (bold labels, document signposting, stacked qualifiers, the diagnosis-and-proof structure) may be load-bearing. Use this skill on public-facing prose: posts, PR and issue text, documentation, and summaries written for outside readers.
 
 ## Why AI text sounds the way it does
 
@@ -48,7 +54,7 @@ Without a sample, take the voice from the kind of text. Blog posts, essays, opin
 
 **Pasted text (default).** Return the draft, a short list of remaining patterns, and the final rewrite.
 
-**File mode.** When the user names a file, run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary.
+**File mode.** When the user names a file, run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary. *Fork amendment (2026-11-04):* before editing, read the file's current contents in full — never rewrite from memory or from a draft you wrote earlier in the session. After writing, report section coverage: which sections you read, which you changed, and which you left unchanged, so the user can tell the whole file was actually processed.
 
 **Embedded mode.** When another task uses this skill for a pull request, commit message, or document, return only the final text.
 
